@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <style>
+        .sep{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align:center;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+          }
+          
+          li {
+            float: left;
+          }
+          
+          li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+          
+          li a:hover {
+            background-color: #111;
+          }
+        
+          body{background-color: AliceBlue;
+          }
+          h1{color:Gray; font-size:40px; text-align: left;
+          background-color:AliceBlue;
+          
+          padding-top:20px;
+          padding-bottom: 20px;
+          }
+          
+          .set{
+            display:flex;
+            justify-content: space-between;
+            align-items: left;
+          }
+        
+          .formm{
+            text-align:center;
+            color:darkslategrey
+          }
+          .heading{
+            color: blueviolet;
+        }
+         
+    </style>
+</head>
+<body>
+        <h1><div class='container'><div class='left'><label class='book'>Moviego</label>
+        </div>
+        </div>
+        </h1>
+        <ul>
+            <div class="set">
+            <div>
+              
+          <li><a href='/U_dashboard/{{Username}}'>Hey {{Username}}</a></li>
+        
+        </div>
+        <div>
+          <li><a href='/profile/{{Username}}'>Profile</a> </li>
+          <li><a href="/summary">Summary</a> </li>
+          <li><a href="/">logout</a> </li>
+        </div>
+    </div>
+        </ul>
+        <div class="sep">
+        {% if s1.Show_Capacity==0 %}
+        <h1>Houseful</h1>
+        {% else %}
+        <h3 class="heading">Venue: {{v1.Venue_name}} </h3>
+        <h3 class="heading">Booking-Show: {{s1.Show_name}} ({{s1.Tags}}) </h3>
+        <h3 class="heading"><div><div>{{s1.Date}}</div> <div>Time: {{s1.Time}}</div></div></h3>
+        </div>
+        
+        <form class="formm" method="post" action="/booking/{{v1.Venue_id}}/{{s1.Show_id}}/{{Username}}">
+          <p>Language: {{s1.Language}}-{{s1.Type}}</p>
+          <p>Available seats: {{s1.Show_Capacity}}</p>
+            <p>Price: {{s1.TicketPrice}}</p>
+            <p>Username:
+              <input name="Username" type="text"/>
+            </p>
+            <p>email:
+              <input name="email" type="text"/>
+            </p>
+            <p>phone:
+              <input name="phone" type="text"/>
+            </p>
+            <p>Number of seats: 
+            <input name="Number_of_seats" type="text"/></p>
+            <p><input type="Submit"></p>
+        </form>
+        {% endif %}
+</body>
+</html>

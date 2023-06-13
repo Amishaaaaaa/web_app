@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user's dashboard</title>
+    <style>
+        body{background-color: AliceBlue;
+}
+h1{color:Gray; font-size:40px; text-align: left;
+background-color:AliceBlue;
+
+padding-top:20px;
+padding-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+
+.head{text-align: center;
+font-size:50px; color:rgb(39, 93, 111);}
+.container{
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+align-items: center;}
+
+
+.venue1{
+    display: flex;
+    justify-content: space-between;
+}
+.V1{
+    background-color:burlywood ;
+}
+
+.naya{
+    display: flex;
+    justify-content: space-between;
+}
+.heading{
+  color: rgb(68, 21, 111);
+}
+    </style>
+
+</head>
+<body>
+        <h1> <div class='container'><div class='left'><label class='book'>Moviego</label>
+        <form action="/U_dashboard/{{Username}}" method="post">
+          <input name="word" type='text' id="word" placeholder="Search for Movies">
+        <button type="submit">Search</button></div>
+      </form>
+        </div></h1>
+        <ul><div class="naya"><div>
+          <li><a href='/U_dashboard/{{Username}}'>Welcome {{ Username }}</a></li>
+        </div>
+          <div>
+          <li><a href='/profile/{{Username}}'>Profile</a></li>
+          <li><a href='/'>Logout</a></li>
+        </div>
+    </div>
+        </ul>
+        
+        
+        <h2 class="head"> Book your favourite Movie Show HERE!</h2>
+
+        <h1 class="heading">In Cinemas Now!</h1>    
+        {% for show in shows %}
+    <ul class="V1">
+
+            <h3><a href="/see_venue/{{ show.Show_id }}/{{Username}}">{{ show.Show_name }}</a> ({{show.Tags}})<p>Date: {{show.Date}} ({{ show.Time }})</p>
+            </h3>
+    
+    </ul>
+{% endfor %}
+    <h1 class="heading">Find your choice of Venue</h1>
+    <ul class="V1">
+    {% for venue in venues %}
+    <h3><a href="/see_show/{{ venue.Venue_id }}/{{Username}}"> {{ venue.Venue_name }} <br>({{venue.Place}})</a></h3><br>
+    {% endfor %}
+  </ul>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <style>
+      body{background-color: AliceBlue;
+}
+h1{color:Gray; font-size:40px; text-align: left;
+background-color:AliceBlue;
+
+padding-top:20px;
+padding-bottom: 20px;
+}
+
+.bar{
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+
+.head{text-align: center;
+font-size:50px; color:rgb(39, 93, 111);}
+.container{
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+align-items: center;}
+
+
+.venue1{
+  display: flex;
+  justify-content: space-between;
+}
+.V1{
+  background-color:burlywood ;
+}
+
+.naya{
+  display: flex;
+  justify-content: space-between;
+}
+.heading{
+color: rgb(68, 21, 111);
+}
+  </style>
+</head>
+<body>
+    <h1> <div class='container'><div class='left'><label class='book'>Moviego</label>
+    
+    </div></h1>
+    <ul class="bar"><div class="naya"><div>
+      <li><a href='/U_dashboard/{{Username}}'>Welcome {{ Username }}</a></li>
+    </div>
+      <div>
+      <li><a href='/profile/{{Username}}'>Profile</a></li>
+      <li><a href='/'>Logout</a></li>
+    </div>
+</div>
+    </ul>
+    
+    
+    <h1>Showing Results for "{{ word }}"</h1>
+    {% if shows %}
+    <ul>
+      {% for show in shows %}
+
+        <a href="/booking/{{show.Venue_id}}/{{show.Show_id}}/{{Username}}">{{ show.Show_name }} ({{show.Tags}})</a>
+        <p>Date: {{ show.Date }}</p>
+        <p>Time: {{ show.Time }}</p>
+      
+      {% endfor %}
+      {% for ven in venuess %}
+      Venue: {{ven.Venue_name}}
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+</body>
+</html>

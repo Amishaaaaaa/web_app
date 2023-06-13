@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin's Dashboard</title>
+    <style>
+    body{background-color: AliceBlue;
+    }
+    h1{color:Gray; font-size:40px; text-align: left;
+    background-color:AliceBlue;
+    
+    padding-top:20px;
+    padding-bottom: 20px;
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        overflow: hidden;
+        background-color: black;
+      }
+      
+      li {
+        float: left;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li a:hover {
+        background-color: #111;
+      }
+      .sep{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align:center;
+    }
+    .heading{
+        color: blueviolet;
+    }
+</style>
+</head>
+<body>
+    <h1>
+        <div class='container'>Moviego</div>
+        </h1>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+        <ul><div class="sep">
+            <div>
+          <li><a href='/A_dashboard/{{Username}}'> Welcome Admin {{ Username }} </a></li>
+        </div>
+        <div>
+          <li><a href="/summary">Summary</a> </li>
+          <li><a href="/">logout</a> </li>
+        </div>
+    </div></ul>
+
+    {% if venues|length==0 %}
+    <h2>Nothing Found</h2>
+
+    {% else %}
+    <div> <!--class="sep"-->
+        <div>
+        <a href="/add_show/{{Username}}"><h2>Add Show</h2></a>
+        {% for show in shows %}
+        <table border="1">
+            <tr>
+                <th>Show_id</th>
+                <th>Show_name</th>
+                <th>Rating</th>
+                <th>Tags</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>TicketPrice</th>
+                <th>Language</th>
+                <th>Type</th>
+                <th>Venue_id</th>
+                <th>Show_Capacity</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+              <th>{{ show.Show_id }}</th><br>
+              <th>{{ show.Show_name }}</th><br>
+              <th>{{ show.Rating }}</th>
+              <th>{{ show.Tags }}</th>
+              <th>{{ show.Date }}</th>
+              <th>{{ show.Time }}</th>
+              <th>{{ show.TicketPrice }}</th>
+              <th>{{ show.Language }}</th>
+              <th>{{ show.Type }}</th>
+              <th>{{ show.Venue_id }}</th>
+              <th>{{ show.Show_Capacity }}</th>
+              <th><a href="/update_show/{{Username}}/{{show.Show_id}}">Link</a></th>
+              <th><a href="/delete_show/{{Username}}/{{show.Show_id}}">Link</a></th>
+          </tr>
+          {% endfor %}
+        </table>
+    </div>
+    <div>
+      <a href="/add_venue/{{Username}}"><h2>Add Venue</h2></a>
+      {% for venue in venues %}
+            <table border="1">
+            <tr>
+                <th>Venue_id</th>
+                <th>Venue_name</th>
+                <th>Place</th>
+                <th>Capacity</th>
+                <th>Rating</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            
+            <tr>
+              <th>{{ venue.Venue_id }}</th><br>
+              <th>{{ venue.Venue_name }}</th><br>
+              <th>{{ venue.Place }}</th>
+              <th>{{ venue.Capacity }}</th>
+              <th>{{ venue.Rating }}</th>
+              <th><a href="/update_venue/{{Username}}/{{venue.Venue_id}}">Link</a></th>
+              <th><a href="/delete_venue/{{Username}}/{{venue.Venue_id}}">Link</a></th>
+          </tr>
+          {% endfor %}
+        </table>
+    </div>
+    </div>
+    
+    {% endif %}
+</body>
+</html>

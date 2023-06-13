@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Show</title>
+    <style>
+        body{background-color: AliceBlue;
+}
+h1{color:Gray; font-size:40px; text-align: left;
+background-color:AliceBlue;
+
+padding-top:20px;
+padding-bottom: 20px;
+} 
+ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+  .sep{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align:center;
+}
+.heading{
+    color: blueviolet;
+}
+    </style>
+</head>
+
+
+<body>
+    <h1>
+        <div class='container'>Moviego
+        
+        </div>
+        </h1>
+        <ul>
+            <div class="sep">
+                <div>
+              <li><a href='A_dashboard.html'>hey {{Username}}</a></li>
+            </div>
+            <div>
+              <li><a href="summary.html">Summary</a> </li>
+              <li><a href="firstpage.html">logout</a> </li>
+            </div>
+        </div>
+        </ul>
+        <ul></ul>
+        <ul></ul>
+    <h1 class="heading">Create a Show</h1>
+    <form method="post" action="/add_show/{{Username}}">
+        <p>Show_name
+            <input name="Show_name" type="text"/>
+        </p>
+        <p>Rating
+            <input name="Rating" type="text"/>
+        </p>
+        <p>Tags
+            <input name="Tags" type="text"/>
+        </p>
+        <p>Date
+            <input name="Date" type="text"/>
+        </p>
+        <p>Time
+            <input name="Time" type="text"/>
+        </p>
+        <p>TicketPrice
+            <input name="TicketPrice" type="text"/>
+        </p>
+        <p>Language
+            <input name="Language" type="text"/>
+        </p>
+        <p>Type
+            <input name="Type" type="text"/>
+        </p>
+        <p>Venue_id
+            <input name="Venue_id" type="text"/>
+        </p>
+        <p>Show_Capacity
+            <input name="Show_Capacity" type="text"/>
+        </p>
+        <input type="submit"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-color: AliceBlue;
+}
+h1{color:Gray; font-size:40px; text-align: left;
+background-color:AliceBlue;
+
+padding-top:20px;
+padding-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+
+.head{text-align: center;
+font-size:50px; color:rgb(39, 93, 111);}
+.container{
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+align-items: center;}
+
+
+.venue1{
+    display: flex;
+    justify-content: space-between;
+}
+.V1{
+    background-color:burlywood ;
+}
+
+.naya{
+    display: flex;
+    justify-content: space-between;
+}
+.heading{
+  color: rgb(68, 21, 111);
+}
+    </style>
+</head>
+<body>
+    <h1> <div class='container'><div class='left'><label class='book'>Moviego</label>
+        
+        </div></h1>
+        <ul><div class="naya"><div>
+          <li><a href='/U_dashboard/{{Username}}'>Welcome {{ Username }}</a></li>
+        </div>
+          <div>
+          <li><a href='/profile/{{Username}}'>Profile</a></li>
+          <li><a href='/'>Logout</a></li>
+        </div>
+    </div>
+        </ul>
+    {% if venuess|length==0 %}
+    <h1> No Venue Found for {{ s1.Show_name }} </h1>
+
+    {% else %}
+    <h1> Venue for {{s1.Show_name}} </h1>
+    {% for venue in venuess %}
+    <div>
+        <h2> <a href="/booking/{{venue.Venue_id}}/{{s1.Show_id}}/{{Username}}">{{ venue.Venue_id}} {{ venue.Venue_name }}</a></h2>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <a href="/U_dashboard/{{Username}}">Go Back</a>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        .sep{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align:center;
+}
+
+.huh {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+  body{background-color: AliceBlue;
+  }
+  h1{color:Gray; font-size:40px; text-align: left;
+  background-color:AliceBlue;
+  
+  padding-top:20px;
+  padding-bottom: 20px;
+  }
+  .heading{
+    color: blueviolet;
+}
+    </style>
+</head>
+<body>
+    <h1>
+        <div class='container'><div class='left'><label class='book'>Moviego</label>
+        </div>
+        </div>
+        </h1>
+        <ul class="huh">
+            <div class='sep'>
+                <div>
+          <li><a href='/U_dashboard/{{Username}}'>Hey {{Username}} </a></li>
+        </div>
+        <div>
+          <li><a href="/">logout</a> </li>
+        </div>
+        </div>
+        </ul>
+        
+    <ul class="V1">
+        <!--
+    <div class="venue1">
+        <h2>Current Shows Booked</h2>
+        <h2 class="heading">{{s1.Show_name}}({{s1.Time}})</h2>
+        <h3>
+            {{v1.Venue_name}}
+                <p><a href="default.asp">Provide review here after watching</a></p>
+            </h3>
+        </div>
+        <br><br>-->
+        <h2>Newly booked Show at the end</h2><br>
+        <h2>Bookings</h2>
+        {% if h1|length==0 %}
+        <h2> No booking found</h2>
+        {% else %}
+        {% for h in h1 %}
+        <div class="venue3">
+            <h2 class="heading">Movie: {{h.Show_name}}</h2>
+            <h3>Venue: {{h.Venue_name}}
+                <!--<p>Date: {{s1.Date}}</p>
+                <p>Time: {{s1.Time}}</p>-->
+                
+            </h3>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </ul>
+    
+</body>
+</html>

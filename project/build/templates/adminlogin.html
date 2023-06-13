@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384
+KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoc2f3B09zVXn8CA5QIVfZ0J3BCsw2P0p/We" crossorigin="anonymous">
+		<title>Welcome</title>
+<style>
+	body{background-color: AliceBlue;
+}
+h1{color:Gray; font-size:40px; text-align: left;
+background-color:AliceBlue;
+
+padding-top:20px;
+padding-bottom: 20px;
+}
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 10px;
+      overflow: hidden;
+      background-color: #181818;
+    }
+    
+    li {
+      float: left;
+    }
+    
+    li a {
+      display: block;
+      color: White;
+      text-align: left;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover {
+      background-color: #111111;
+    }
+    .containerr {
+        display: flex;
+        justify-content: space-between;
+        align-items: right;
+    }
+    
+    .userlogin {
+      width: 40%;
+      padding: 20px;
+      background-color: #d0d0d0;
+    }
+    
+    .usersignup {
+      width: 40%;
+      padding: 20px;
+      background-color: #d0d0d0;
+    }
+    .sep{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align:center;
+  }
+  .heading{
+    color: blueviolet;
+}
+</style>
+	</head>
+
+	<body>
+<h1>
+<div class='container'>Moviego
+
+</div>
+</h1>
+<ul></ul>
+<ul></ul>
+
+<div class="containerr">
+<div class="userlogin">
+<h3 class="heading">Admin LOGIN</h3>
+<form id="form" method="post" action="/admin_page" >
+  <input type="hidden" name="form_type" value="login">
+  <p>Username</p>
+	<input name="Username" type="text" required/>
+	<p>Email Address</p>
+  <input name="email" type="text" required/>
+	<p>Password</p>
+	<input name="password" type="password" required/>
+	<br>
+	<br>
+  <input type="submit"/>
+</form>
+</div>
+<div class="usersignup">
+<h3 class="heading">Admin SignUp</h3>
+<form id="signup" method="post" action="/admin_page">
+  <input type="hidden" name="form_type" value="signup">
+  <p>Create Username</p>
+	<input name="Username" type="text" required/>
+  <p>Enter Email Address</p>
+  <input name="email" type="text" required/>
+	<p>Create Password</p>
+	<input name="password" type="password" required/>
+	<p>Confirm Password</p>
+	<input name="password" type="password" required/>
+	<br>
+	<br>
+	<input type="submit">
+</form>
+</div>
+</div>
+<!-- <ul><li><a href='default.asp'>Admin SIGN UP</a></li>
+<li><a href='userlogin.html'>LOGIN</a></li></ul> -->
+
+</body>
+</html>

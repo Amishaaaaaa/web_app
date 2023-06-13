@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Venue</title>
+    <style>
+        body{background-color: AliceBlue;
+}
+h1{color:Gray; font-size:40px; text-align: left;
+background-color:AliceBlue;
+
+padding-top:20px;
+padding-bottom: 20px;
+}ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+  .sep{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align:center;
+}
+
+.heading{
+    color: blueviolet;
+}
+
+    </style>
+</head>
+<body>
+    <h1>
+        <div class='container'>Moviego
+        
+        </div>
+        </h1>
+        <ul>
+            <div class="sep">
+                <div>
+              <li><a href='A_dashboard.html'>Hey {{Username}}</a></li>
+            </div>
+            <div>
+              <li><a href="summary.html">Summary</a> </li>
+              <li><a href="firstpage.html">logout</a> </li>
+            </div>
+        </div>
+        </ul>
+
+    <h1 class="heading">Create Venue</h1>
+    <form method="post" action="/add_venue/{{Username}}">
+        <p>Venue_name
+            <input name="Venue_name" type="text"/></p>
+        <p>Place
+            <input name="Place" type="text"/></p>
+        <p>Capacity
+            <input name="Capacity" type="text"/></p>
+        <p>Rating
+            <input name="Rating" type="text"/></p>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
